@@ -379,14 +379,11 @@ map <leader>n :NERDTreeToggle<CR>
 " easymotion
 nmap ss <Plug>(easymotion-s2)
 
+" 注释
+nmap <localleader>c gcc
+vmap <localleader>c gc
 
-
-
-
-
-
-
-
+nnoremap <silent> <leader>r :source ~/.config/nvim/init.vim <CR>
 
 
 
@@ -409,6 +406,8 @@ let g:which_key_localleader_map =  {}
 " =======================================================
 " You can pass a descriptive text to an existing mapping.
 
+let g:which_key_localleader_map.c = '注释'
+let g:which_key_leader_map.r = 'source vim'
 
 
 " =======================================================
@@ -452,4 +451,7 @@ let g:which_key_leader_map.b = {
 
 
 
-
+let g:which_key_localleader_map.g = {
+    \'name':'+go', 
+    \'r':['GoRun','run go file'],
+    \}
