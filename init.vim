@@ -16,8 +16,15 @@
 " <silent>是指执行键绑定时不在命令行上回显
 " <special>一般用于定义特殊键怕有副作用的场合。比如： :map <special> <F12> /Header<CR>
 " <unique>一般用于定义新的键映射或者缩写命令的同时检查是否该键已经被映射，如果该映射或者缩写已经存在，则该命令会失败
-let mapleader = "," 
-let g:mapleader = ","
+
+
+let g:mapleader = "\<Space>"
+let g:maplocalleader = ","
+
+
+
+
+
 
 " 切换窗口
 nnoremap <C-h> <C-w>h
@@ -36,8 +43,7 @@ nnoremap j gj
 nnoremap gj j
 
 
-map <C-Space> :NERDTreeToggle<CR>
-nnoremap <leader>g :NERDTreeFind<CR>
+map <leader>n :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.git$']
 
@@ -89,6 +95,8 @@ Plug 'elzr/vim-json'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-user'
 Plug 'aquach/vim-http-client'
+Plug 'liuchengxu/vim-which-key'
+Plug 'hecal3/vim-leader-guide'
 call plug#end()
 
 let g:vim_markdown_frontmatter = 1
@@ -191,7 +199,7 @@ set guifont=Monospace\ 12                 "设置字体:字号（字体名称空
 set mouse=a                    " 在任何模式下启用鼠标
 set nofoldenable                                        "启用折叠
 " set foldmethod=indent                                 "indent 折叠方式
-nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR> " 用空格键来开关折叠
+nnoremap <C-space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR> " 用空格键来开关折叠
 set breakindent
 set linebreak
 set mousemodel=popup                                   "开启右键快捷方式
@@ -251,6 +259,7 @@ set breakindent
 set sidescroll=5
 " set listchars+=precedes:<,extends:>
 set updatetime=100
+set timeoutlen=500
 
 
 colorscheme hybrid
@@ -361,6 +370,47 @@ augroup json_autocmd
   autocmd FileType json set expandtab
   autocmd FileType json set foldmethod=syntax
 augroup END
+
+call which_key#register(',', "g:which_key_map")
+call which_key#register('<Space>', "g:which_key_map_space")
+nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+vnoremap <silent> <leader>      :<c-u>WhichKeyVisual '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+vnoremap <silent> <localleader> :<c-u>WhichKeyVisual  ','<CR>
+
+let g:which_key_map_space = {}
+
+let g:which_key_map_space.f = { 'name' : '+file' }
+let g:which_key_map_space.f.s = 'save-file'
+
+
+nmap <localleader>c gcc          " comment current line
+
+let g:which_key_map =  {}
+nnoremap <silent> <localleader>hv :h version<CR>
+let g:which_key_map.h = {'name': '+help',
+    \'v': [':h version', 'vim version']}
+
+let g:which_key_map_space['w'] = {
+      \ 'name' : '+windows' ,
+      \ 'w' : ['<C-W>w'     , 'other-window']          ,
+      \ 'd' : ['<C-W>c'     , 'delete-window']         ,
+      \ '-' : ['<C-W>s'     , 'split-window-below']    ,
+      \ '|' : ['<C-W>v'     , 'split-window-right']    ,
+      \ '2' : ['<C-W>v'     , 'layout-double-columns'] ,
+      \ 'h' : ['<C-W>h'     , 'window-left']           ,
+      \ 'j' : ['<C-W>j'     , 'window-below']          ,
+      \ 'l' : ['<C-W>l'     , 'window-right']          ,
+      \ 'k' : ['<C-W>k'     , 'window-up']             ,
+      \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
+      \ 'J' : ['resize +5'  , 'expand-window-below']   ,
+      \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
+      \ 'K' : ['resize -5'  , 'expand-window-up']      ,
+      \ '=' : ['<C-W>='     , 'balance-window']        ,
+      \ 's' : ['<C-W>s'     , 'split-window-below']    ,
+      \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
+      \ '?' : ['Windows'    , 'fzf-window']            ,
+      \ }
 
 
 
