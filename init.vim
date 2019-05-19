@@ -84,6 +84,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'suan/vim-instant-markdown', {'rtp': 'after'}
+Plug 'jszakmeister/markdown2ctags'
 Plug 'elzr/vim-json'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-user'
@@ -118,7 +119,7 @@ set completeopt-=preview
 
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
-let g:tagbar_type_markdown = {'ctagstype': 'markdown','ctagsbin' : '~/.vim/bundle/markdown2ctags/markdown2ctags.py','ctagsargs' : '-f - --sort=yes','kinds' : ['s:sections','i:images'],'sro' : '|','kind2scope' : {'s' : 'section',},'sort': 0,}
+let g:tagbar_type_markdown = {'ctagstype': 'markdown','ctagsbin' : '/home/user/.vim/plugged/markdown2ctags/markdown2ctags.py','ctagsargs' : '-f - --sort=yes','kinds' : ['s:sections','i:images'],'sro' : '|','kind2scope' : {'s' : 'section',},'sort': 0,}
 
 
 let g:deoplete#sources#go#gocode_binary = '/home/user/go/bin/gocode'
