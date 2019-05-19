@@ -104,6 +104,7 @@ alias vnote="/home/user/Downloads/VNote-2.4-x86_64.AppImage"
 alias gitp="git add . && git commit -m i && git push"
 alias home="cd ~"
 alias vi="nvim"
+alias ll="ls -al"
 MAVEN_HOME=/home/user/Downloads/apache-maven-3.6.0
 JAVA_HOME=/home/user/Downloads/jdk-11.0.2
 CLASSPATH=${JAVA_HOME}/lib
