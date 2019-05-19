@@ -18,36 +18,22 @@
 " <unique>一般用于定义新的键映射或者缩写命令的同时检查是否该键已经被映射，如果该映射或者缩写已经存在，则该命令会失败
 
 
-let g:mapleader = "\<Space>"
-let g:maplocalleader = ","
 
 
 
 
 
 
-" 切换窗口
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-Left> <C-w>h
-nnoremap <C-Down> <C-w>j
-nnoremap <C-Up> <C-w>k
-nnoremap <C-Right> <C-w>l
-
-" 屏幕行和实际行移动键统一
-nnoremap k gk
-nnoremap gk k
-nnoremap j gj
-nnoremap gj j
 
 
-map <leader>n :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
-let NERDTreeIgnore = ['\.git$']
 
-nmap ss <Plug>(easymotion-s2)
+
+
+
+
+
+
+
 
 
 " 定义command命令
@@ -58,81 +44,70 @@ com! FormatJSON %!python3 -m json.tool
 
 " curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
-Plug '907th/vim-auto-save'
-Plug 'mhinz/vim-startify'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'sirver/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'w0ng/vim-hybrid'
-Plug 'sbdchd/neoformat'
-Plug 'tpope/vim-commentary'         " gc
-Plug 'yggdroot/indentline'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-surround'      " ys iw "    cs"'  cs(]  ds'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/fzf.vim'             " Ag[PATTREN]模糊搜索字符串   Files[path]模糊搜索目录
-Plug 'brooth/far.vim'              " :Far foo bar **/*.py :Fardo
-Plug 'majutsushi/tagbar'         " :TagbarToggle
-Plug 'vasconcelloslf/vim-interestingwords'    "<lead>k
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'deoplete-plugins/deoplete-go', {'do':'make'}
-Plug 'w0rp/ale'
-Plug 'airblade/vim-gitgutter'
-Plug 'jiangmiao/auto-pairs'
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'suan/vim-instant-markdown', {'rtp': 'after'}
-Plug 'jszakmeister/markdown2ctags'
-Plug 'elzr/vim-json'
-Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-textobj-user'
-Plug 'aquach/vim-http-client'
-Plug 'liuchengxu/vim-which-key'
-Plug 'hecal3/vim-leader-guide'
+    Plug '907th/vim-auto-save'
+    Plug 'mhinz/vim-startify'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'sirver/ultisnips'
+    Plug 'honza/vim-snippets'
+    Plug 'w0ng/vim-hybrid'
+    Plug 'sbdchd/neoformat'
+    Plug 'tpope/vim-commentary'         " gc
+    Plug 'yggdroot/indentline'
+    Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+    Plug 'AndrewRadev/splitjoin.vim'
+    Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
+    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'easymotion/vim-easymotion'
+    Plug 'tpope/vim-surround'      " ys iw "    cs"'  cs(]  ds'
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'tpope/vim-fugitive'
+    Plug 'junegunn/fzf.vim'             " Ag[PATTREN]模糊搜索字符串   Files[path]模糊搜索目录
+    Plug 'brooth/far.vim'              " :Far foo bar **/*.py :Fardo
+    Plug 'majutsushi/tagbar'         " :TagbarToggle
+    Plug 'vasconcelloslf/vim-interestingwords'    "<lead>k
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'deoplete-plugins/deoplete-go', {'do':'make'}
+    Plug 'w0rp/ale'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'godlygeek/tabular'
+    Plug 'plasticboy/vim-markdown'
+    Plug 'suan/vim-instant-markdown', {'rtp': 'after'}
+    Plug 'jszakmeister/markdown2ctags'
+    Plug 'elzr/vim-json'
+    Plug 'kana/vim-textobj-entire'
+    Plug 'kana/vim-textobj-user'
+    Plug 'aquach/vim-http-client'
+    Plug 'liuchengxu/vim-which-key'
+    Plug 'hecal3/vim-leader-guide'
 call plug#end()
 
+let g:mapleader = "\<Space>"
+let g:maplocalleader = ","
+let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['\.git$']
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0
 let b:ale_fixers = {'go': ['golint']}
-
 let g:vim_json_syntax_conceal = 0
 let g:NERDTreeQuitOnOpen = 1
-
 let g:UltiSnipsExpandTrigger="<tab>"
-
-
 let g:neoformat_enabled_go = ['goimports']
-
 let g:auto_save = 1  " enable AutoSave on Vim startup
 let g:auto_save_events = ["InsertLeave", "TextChanged"]
 let g:auto_save_silent = 0  "  display the auto-save notification
-
-
-
 " let g:tagbar_ctags_bin = '~/.config/nvim/'
 " autocmd! User goyo.vim echom 'Goyo is now loaded!'
 let g:go_fmt_command = "goimports"
-
 let g:deoplete#enable_at_startup = 1
-set completeopt-=preview
-
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-
 let g:tagbar_type_markdown = {'ctagstype': 'markdown','ctagsbin' : '/home/user/.vim/plugged/markdown2ctags/markdown2ctags.py','ctagsargs' : '-f - --sort=yes','kinds' : ['s:sections','i:images'],'sro' : '|','kind2scope' : {'s' : 'section',},'sort': 0,}
-
-
 let g:deoplete#sources#go#gocode_binary = '/home/user/go/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
@@ -161,13 +136,38 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
 \ }
 
+" vim-go
+let g:go_fmt_command = "goimports"
+let g:go_autodetect_gopath = 1
+let g:go_list_type = "quickfix"
+let g:go_auto_type_info = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_generate_tags = 1
+let g:go_auto_sameids = 1
+" let g:go_highlight_operators = 1
+" let g:go_highlight_build_constraints = 1
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_deadline = "5s"
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:which_key_hspace = 45
 
 
 
 
 
-
+colorscheme hybrid
+syntax on
+syntax enable
+filetype on
+filetype plugin on
+filetype plugin indent on
 " set list lcs=tab:\|\ 
+set completeopt-=preview
 set background=dark
 set shell=/usr/bin/zsh
 set number
@@ -260,16 +260,11 @@ set sidescroll=5
 " set listchars+=precedes:<,extends:>
 set updatetime=100
 set timeoutlen=500
-
-
-colorscheme hybrid
-syntax on
-syntax enable
-filetype on
-filetype plugin on
-filetype plugin indent on
-
-
+set splitright                  " Vertical windows should be split to right
+set splitbelow                  " Horizontal windows should split to bottom
+set autowrite                   " Automatically save before :next, :make etc.
+set hidden                      " Buffer should still exist if window is closed
+set fileformats=unix,dos,mac    " Prefer Unix over Windows over OS 9 formats
 set clipboard=unnamedplus
 
 
@@ -278,11 +273,6 @@ set clipboard=unnamedplus
 
 
 
-set splitright                  " Vertical windows should be split to right
-set splitbelow                  " Horizontal windows should split to bottom
-set autowrite                   " Automatically save before :next, :make etc.
-set hidden                      " Buffer should still exist if window is closed
-set fileformats=unix,dos,mac    " Prefer Unix over Windows over OS 9 formats
 
 
 
@@ -291,31 +281,6 @@ set fileformats=unix,dos,mac    " Prefer Unix over Windows over OS 9 formats
 
 
 
-"""""""""""""""""""""
-"      Plugins      "
-"""""""""""""""""""""
-
-" vim-go
-let g:go_fmt_command = "goimports"
-let g:go_autodetect_gopath = 1
-let g:go_list_type = "quickfix"
-let g:go_auto_type_info = 1
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_generate_tags = 1
-let g:go_auto_sameids = 1
-" let g:go_highlight_operators = 1
-" let g:go_highlight_build_constraints = 1
-let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
-let g:go_metalinter_autosave = 1
-let g:go_metalinter_deadline = "5s"
-let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-" Open :GoDeclsDir with ctrl-g
-nmap <C-g> :GoDeclsDir<cr>
-imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
 
 
 augroup go
@@ -371,27 +336,86 @@ augroup json_autocmd
   autocmd FileType json set foldmethod=syntax
 augroup END
 
-call which_key#register(',', "g:which_key_map")
-call which_key#register('<Space>', "g:which_key_map_space")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+" 切换窗口
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-Left> <C-w>h
+nnoremap <C-Down> <C-w>j
+nnoremap <C-Up> <C-w>k
+nnoremap <C-Right> <C-w>l
+
+" 屏幕行和实际行移动键统一
+nnoremap k gk
+nnoremap gk k
+nnoremap j gj
+nnoremap gj j
+
+" Open :GoDeclsDir with ctrl-g
+nmap <C-g> :GoDeclsDir<cr>
+imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
+
+
+
+" NERDTree
+map <leader>n :NERDTreeToggle<CR>
+
+
+" easymotion
+nmap ss <Plug>(easymotion-s2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+" vim-which-key
+call which_key#register('<Space>', "g:which_key_leader_map")
+call which_key#register(',', "g:which_key_localleader_map")
+
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <leader>      :<c-u>WhichKeyVisual '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 vnoremap <silent> <localleader> :<c-u>WhichKeyVisual  ','<CR>
 
-let g:which_key_map_space = {}
-
-let g:which_key_map_space.f = { 'name' : '+file' }
-let g:which_key_map_space.f.s = 'save-file'
+let g:which_key_leader_map = {}
+let g:which_key_localleader_map =  {}
 
 
-nmap <localleader>c gcc          " comment current line
+" =======================================================
+" Create menus based on existing mappings
+" =======================================================
+" You can pass a descriptive text to an existing mapping.
 
-let g:which_key_map =  {}
-nnoremap <silent> <localleader>hv :h version<CR>
-let g:which_key_map.h = {'name': '+help',
-    \'v': [':h version', 'vim version']}
 
-let g:which_key_map_space['w'] = {
+
+" =======================================================
+" Create menus not based on existing mappings:
+" =======================================================
+" Provide commands(ex-command, <Plug>/<C-W>/<C-d> mapping, etc.) and descriptions for existing mappings
+let g:which_key_leader_map['w'] = {
       \ 'name' : '+windows' ,
       \ 'w' : ['<C-W>w'     , 'other-window']          ,
       \ 'd' : ['<C-W>c'     , 'delete-window']         ,
@@ -410,6 +434,20 @@ let g:which_key_map_space['w'] = {
       \ 's' : ['<C-W>s'     , 'split-window-below']    ,
       \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
       \ '?' : ['Windows'    , 'fzf-window']            ,
+      \ }
+
+
+let g:which_key_leader_map.b = {
+      \ 'name' : '+buffer' ,
+      \ '1' : ['b1'        , 'buffer 1']        ,
+      \ '2' : ['b2'        , 'buffer 2']        ,
+      \ 'd' : ['bd'        , 'delete-buffer']   ,
+      \ 'f' : ['bfirst'    , 'first-buffer']    ,
+      \ 'h' : ['Startify'  , 'home-buffer']     ,
+      \ 'l' : ['blast'     , 'last-buffer']     ,
+      \ 'n' : ['bnext'     , 'next-buffer']     ,
+      \ 'p' : ['bprevious' , 'previous-buffer'] ,
+      \ '?' : ['Buffers'   , 'fzf-buffer']      ,
       \ }
 
 
