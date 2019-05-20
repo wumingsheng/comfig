@@ -83,6 +83,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'aquach/vim-http-client'
     Plug 'liuchengxu/vim-which-key'
     Plug 'hecal3/vim-leader-guide'
+    Plug 'morhetz/gruvbox'
 call plug#end()
 
 let g:mapleader = "\<Space>"
@@ -154,13 +155,12 @@ let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 let g:go_metalinter_autosave = 1
 let g:go_metalinter_deadline = "5s"
 let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-let g:which_key_hspace = 45
+let g:which_key_hspace = 15
+let g:gruvbox_contrast_dark='hard'   "hard medium soft
 
 
 
-
-
-colorscheme hybrid
+colorscheme gruvbox   " gruvbox  hybrid
 syntax on
 syntax enable
 filetype on
@@ -197,8 +197,7 @@ set shortmess=atI                                     "去掉欢迎界面
 set fileformats=unix,dos,mac                          "给出文件的<EOL>格式类型
 set guifont=Monospace\ 12                 "设置字体:字号（字体名称空格用下划线代替）
 set mouse=a                    " 在任何模式下启用鼠标
-set nofoldenable                                        "启用折叠
-" set foldmethod=indent                                 "indent 折叠方式
+set nofoldenable                                        "折叠
 nnoremap <C-space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR> " 用空格键来开关折叠
 set breakindent
 set linebreak
