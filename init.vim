@@ -41,7 +41,7 @@
 
 " 定义command命令
 com! FormatJSON %!python3 -m json.tool
-
+com! GitP !git add . && git commit -m i && git push
 
 
 
@@ -494,7 +494,6 @@ let g:which_key_leader_map.b = {
 let g:which_key_localleader_map.g = {
     \'name':'+git', 
     \'d':['Gdiff','git diff'],
-    \'p':['!git add . && git commit -m i && git push', 'git add-commit-push'],
     \'s':['Gstatus', 'git status'],
     \}
 
