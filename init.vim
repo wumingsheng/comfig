@@ -52,12 +52,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'honza/vim-snippets'
     Plug 'w0ng/vim-hybrid'
     Plug 'sbdchd/neoformat'
-    Plug 'tpope/vim-commentary'         " gc
     Plug 'yggdroot/indentline'
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
     Plug 'AndrewRadev/splitjoin.vim'
     Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+    Plug 'scrooloose/nerdcommenter'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'easymotion/vim-easymotion'
@@ -84,8 +84,23 @@ call plug#begin('~/.vim/plugged')
     Plug 'liuchengxu/vim-which-key'
     Plug 'hecal3/vim-leader-guide'
     Plug 'morhetz/gruvbox'
+    Plug 'raimondi/delimitmate'
+    Plug 'skywind3000/quickmenu.vim'
 call plug#end()
 
+
+
+
+
+
+
+
+
+
+
+
+let g:NERDSpaceDelims = 1
+let g:quickmenu_options = "HL"
 let g:mapleader = "\<Space>"
 let g:maplocalleader = ","
 let NERDTreeShowHidden=1
@@ -378,11 +393,30 @@ map <leader>n :NERDTreeToggle<CR>
 " easymotion
 nmap ss <Plug>(easymotion-s2)
 
-" 注释
-nmap <localleader>c gcc
-vmap <localleader>c gc
 
+" 使vim配置文件生效
 nnoremap <silent> <leader>r :source ~/.config/nvim/init.vim <CR>
+
+" quickmenu 命令提示菜单
+" function quickmenu#append(text, action [, help = '' [, ft = '']])
+noremap <silent> <leader>/ :call quickmenu#toggle(0) <CR>
+
+call g:quickmenu#append('# vim', '')
+call g:quickmenu#append('Source', 'source ~/.config/nvim/init.vim', 'source .vimrc', 'vim')
+call g:quickmenu#append('Home', 'Startify', 'Startify Home Page')
+call g:quickmenu#append('# plugin', '')
+call g:quickmenu#append('PlugInstall', 'PlugInstall', 'install plugin')
+call g:quickmenu#append('PlugClean', 'PlugClean', 'remove plugin')
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -405,7 +439,6 @@ let g:which_key_localleader_map =  {}
 " =======================================================
 " You can pass a descriptive text to an existing mapping.
 
-let g:which_key_localleader_map.c = '注释'
 let g:which_key_leader_map.r = 'source vim'
 
 
