@@ -55,7 +55,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'yggdroot/indentline'
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
     Plug 'AndrewRadev/splitjoin.vim'
-    Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     Plug 'scrooloose/nerdcommenter'
     Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -116,8 +115,6 @@ let g:neoformat_enabled_go = ['goimports']
 let g:auto_save = 1  " enable AutoSave on Vim startup
 let g:auto_save_events = ["InsertLeave", "TextChanged"]
 let g:auto_save_silent = 0  "  display the auto-save notification
-" let g:tagbar_ctags_bin = '~/.config/nvim/'
-" autocmd! User goyo.vim echom 'Goyo is now loaded!'
 let g:go_fmt_command = "goimports"
 let g:deoplete#enable_at_startup = 1
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
@@ -397,17 +394,25 @@ nmap ss <Plug>(easymotion-s2)
 " 使vim配置文件生效
 nnoremap <silent> <leader>r :source ~/.config/nvim/init.vim <CR>
 
+
+
+
+" ============================================================
 " quickmenu 命令提示菜单
 " function quickmenu#append(text, action [, help = '' [, ft = '']])
+" ============================================================
 noremap <silent> <leader>/ :call quickmenu#toggle(0) <CR>
 
 call g:quickmenu#append('# vim', '')
 call g:quickmenu#append('Source', 'source ~/.config/nvim/init.vim', 'source .vimrc', 'vim')
 call g:quickmenu#append('Home', 'Startify', 'Startify Home Page')
+
 call g:quickmenu#append('# plugin', '')
 call g:quickmenu#append('PlugInstall', 'PlugInstall', 'install plugin')
 call g:quickmenu#append('PlugClean', 'PlugClean', 'remove plugin')
 
+call g:quickmenu#append('# NerdTree', '')
+call g:quickmenu#append('NERDTreeToggle', 'NERDTreeToggle', 'toggle NerdTree')
 
 
 
@@ -487,3 +492,43 @@ let g:which_key_localleader_map.g = {
     \'name':'+go', 
     \'r':['GoRun','run go file'],
     \}
+
+
+
+
+" ============注释=================================
+" nerdcommenter
+" ==================================================
+nmap <localleader>cc <Space>cc
+nmap <localleader>cu <Space>cu
+nmap <localleader>c, <Space>c,
+nmap <localleader>ca <Space>ca
+nmap <localleader>c<Space> <Space>c<Space>
+nmap <localleader>cy <Space>cy
+nmap <localleader>cs <Space>cs
+nmap <localleader>cA <Space>cA
+
+
+let g:which_key_localleader_map.c = {
+      \ 'name' : '+comment',
+      \ 'c' : '注释当前行',
+      \ 'u' : '取消注释',
+      \ ',' : '切换注释/非注释状态',
+      \ 'a' : '切换注释样式',
+      \ 'SPC' : '加上/解开注释-智能判断',
+      \ 'y' : '先复制再注释',
+      \ 's' : '性感的注释',
+      \ 'A' : '在当前行尾添加注释符号，并进入Insert模式',
+      \ }
+
+
+
+
+
+
+
+
+
+
+
+
