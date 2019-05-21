@@ -74,7 +74,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'deoplete-plugins/deoplete-go', {'do':'make'}
     Plug 'w0rp/ale'
     Plug 'airblade/vim-gitgutter'
-    Plug 'jiangmiao/auto-pairs'
     Plug 'godlygeek/tabular'
     Plug 'plasticboy/vim-markdown'
     Plug 'suan/vim-instant-markdown', {'rtp': 'after'}
@@ -86,7 +85,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'liuchengxu/vim-which-key'
     Plug 'hecal3/vim-leader-guide'
     Plug 'morhetz/gruvbox'
-    Plug 'raimondi/delimitmate'
     Plug 'skywind3000/quickmenu.vim'
 call plug#end()
 
@@ -406,6 +404,11 @@ nnoremap <silent> <leader>r :source ~/.config/nvim/init.vim <CR>
 " ============================================================
 noremap <silent> <leader>/ :call quickmenu#toggle(0) <CR>
 
+
+
+call g:quickmenu#append('# common', '')
+call g:quickmenu#append('LastEX', '@:', 'last command')
+
 call g:quickmenu#append('# vim', '')
 call g:quickmenu#append('Source', 'source ~/.config/nvim/init.vim', 'source .vimrc', 'vim')
 call g:quickmenu#append('Home', 'Startify', 'Startify Home Page')
@@ -417,6 +420,27 @@ call g:quickmenu#append('PlugClean', 'PlugClean', 'remove plugin')
 call g:quickmenu#append('# NerdTree', '')
 call g:quickmenu#append('NERDTreeToggle', 'NERDTreeToggle', 'toggle NerdTree')
 
+call g:quickmenu#append('# git', '')
+call g:quickmenu#append('GitDiff', 'Gdiff', 'Gdiff')
+call g:quickmenu#append('GitPush', 'Gitp', 'git add/commit/push')
+call g:quickmenu#append('GitStatus', 'Gstatus', 'Gstatus')
+
+call g:quickmenu#append('# vim-go', '')
+call g:quickmenu#append('GoBuild', 'GoBuild', 'go build', 'go')
+call g:quickmenu#append('GoInstall', 'GoInstall', 'go install','go')
+call g:quickmenu#append('GoTest', 'GoTest', 'go test','go')
+call g:quickmenu#append('GoTestFunc', 'GoTestFunc', 'go test func', 'go')
+call g:quickmenu#append('GoRun', 'GoRun', 'go run', 'go')
+call g:quickmenu#append('GoDebugStart', 'GoDebugStart', 'go debug', 'go')
+call g:quickmenu#append('GoDef', 'GoDef', 'go def', 'go')
+call g:quickmenu#append('GoDoc', 'GoDoc', 'go doc', 'go')
+call g:quickmenu#append('Gofmt', 'Gofmt', 'go fmt', 'go')
+call g:quickmenu#append('Goimports', 'Goimports', 'go imports', 'go')
+call g:quickmenu#append('GoRename', 'GoRename', 'go rename', 'go')
+call g:quickmenu#append('GoMetaLinter', 'GoMetaLinter', 'go metalinter', 'go')
+call g:quickmenu#append('GoCallees', 'GoCallees', 'GoCallees', 'go')
+call g:quickmenu#append('GoReferrers', 'GoReferrers', 'GoReferrers', 'go')
+call g:quickmenu#append('GoImplements', 'Goimports', 'Goimports', 'go')
 
 
 
