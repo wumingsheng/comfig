@@ -412,6 +412,7 @@ call g:quickmenu#append('Terminal', 'terminal', 'open Terminal')
 tnoremap <Esc> <C-\><C-n>
 call g:quickmenu#append('split |', 'vsp', 'vsplit')
 call g:quickmenu#append('split -', 'sp', 'vsplit')
+call g:quickmenu#append('fzf', 'Files', 'Files')
 
 
 
