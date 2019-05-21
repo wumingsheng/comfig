@@ -86,7 +86,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'hecal3/vim-leader-guide'
     Plug 'morhetz/gruvbox'
     Plug 'skywind3000/quickmenu.vim'
-    Plug 'ryanoasis/vim-devicons'   " 需要安装字体:https://github.com/ryanoasis/nerd-fonts
+    Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 
@@ -208,7 +208,7 @@ set shortmess=atI                                     "去掉欢迎界面
 " 文件格式，默认 ffs=dos,unix
 " set fileformat=unix                                   "设置新文件的<EOL>格式
 set fileformats=unix,dos,mac                          "给出文件的<EOL>格式类型
-set guifont=SpaceMono\ Nerd\ Font\ 12
+set guifont="SauceCodePro Nerd Font Mono:h11"
 set mouse=a                    " 在任何模式下启用鼠标
 set nofoldenable                                        "折叠
 nnoremap <C-space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR> " 用空格键来开关折叠
