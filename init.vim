@@ -408,6 +408,12 @@ noremap <silent> <leader>/ :call quickmenu#toggle(0) <CR>
 
 call g:quickmenu#append('# common', '')
 call g:quickmenu#append('LastEX', '@:', 'last command')
+call g:quickmenu#append('Terminal', 'terminal', 'open Terminal')
+tnoremap <Esc> <C-\><C-n>
+call g:quickmenu#append('split |', 'vsp', 'vsplit')
+call g:quickmenu#append('split -', 'sp', 'vsplit')
+
+
 
 call g:quickmenu#append('# vim', '')
 call g:quickmenu#append('Source', 'source ~/.config/nvim/init.vim', 'source .vimrc', 'vim')
