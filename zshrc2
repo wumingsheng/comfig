@@ -17,6 +17,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias ll="ls -al"
 alias gitp="git add . && git commit -m i && git push"
+alias home="cd ~"
 
 
 
