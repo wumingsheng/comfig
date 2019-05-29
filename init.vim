@@ -1,16 +1,16 @@
 " 最常用的是逗号和空格nmap、imap、cmap、vmap 非递归映射 nnoremap/inoremap/cnoremap/vnoremap推荐使用非递归映射
 " n[ormal] i[nsert] c[ommand] v[isual]
-" <Up><Down><Right><Left><End><Space><ESC><CR><C-w><leader> 
+" <Up><Down><Right><Left><End><Space><ESC><CR><C-w><leader>
 " `^代表上次编辑的地方
-" <k0> - <k9> 小键盘 0 到 9 
-" <S-...> Shift＋键 
-" <C-...> Control＋键 
-" <M-...> Alt＋键 或 meta＋键 
-" <A-...> 同 <M-...> 
-" <Esc> Escape 键 
-" <Up> 光标上移键 
-" <Space> 插入空格 
-" <Tab> 插入Tab 
+" <k0> - <k9> 小键盘 0 到 9
+" <S-...> Shift＋键
+" <C-...> Control＋键
+" <M-...> Alt＋键 或 meta＋键
+" <A-...> 同 <M-...>
+" <Esc> Escape 键
+" <Up> 光标上移键
+" <Space> 插入空格
+" <Tab> 插入Tab
 " <CR> 等于<Enter>
 " <buffer>，映射将只局限于当前缓冲区（也就是你此时正编辑的文件）
 " <silent>是指执行键绑定时不在命令行上回显
@@ -47,46 +47,46 @@ com! GitP !git add . && git commit -m i && git push
 
 " curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
-    Plug '907th/vim-auto-save'
-    Plug 'mhinz/vim-startify'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-    Plug 'sirver/ultisnips'
-    Plug 'honza/vim-snippets'
-    Plug 'w0ng/vim-hybrid'
-    Plug 'sbdchd/neoformat'
-    Plug 'yggdroot/indentline'
-    Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-    Plug 'AndrewRadev/splitjoin.vim'
-    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-    Plug 'scrooloose/nerdcommenter'
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'ctrlpvim/ctrlp.vim'
-    Plug 'easymotion/vim-easymotion'
-    Plug 'tpope/vim-surround'      " ys iw "    cs"'  cs(]  ds'
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'tpope/vim-fugitive'
-    Plug 'junegunn/fzf.vim'             " Ag[PATTREN]模糊搜索字符串   Files[path]模糊搜索目录
-    Plug 'brooth/far.vim'              " :Far foo bar **/*.py :Fardo
-    Plug 'majutsushi/tagbar'         " :TagbarToggle
-    Plug 'vasconcelloslf/vim-interestingwords'    "<lead>k
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'deoplete-plugins/deoplete-go', {'do':'make'}
-    Plug 'w0rp/ale'
-    Plug 'airblade/vim-gitgutter'
-    Plug 'godlygeek/tabular'
-    Plug 'plasticboy/vim-markdown'
-    Plug 'suan/vim-instant-markdown', {'rtp': 'after'}
-    Plug 'jszakmeister/markdown2ctags'
-    Plug 'elzr/vim-json'
-    Plug 'kana/vim-textobj-entire'
-    Plug 'kana/vim-textobj-user'
-    Plug 'aquach/vim-http-client'
-    Plug 'liuchengxu/vim-which-key'
-    Plug 'hecal3/vim-leader-guide'
-    Plug 'morhetz/gruvbox'
-    Plug 'skywind3000/quickmenu.vim'
-    Plug 'ryanoasis/vim-devicons'
+Plug '907th/vim-auto-save'
+Plug 'mhinz/vim-startify'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'w0ng/vim-hybrid'
+Plug 'sbdchd/neoformat'
+Plug 'yggdroot/indentline'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdcommenter'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-surround'      " ys iw "    cs"'  cs(]  ds'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf.vim'             " Ag[PATTREN]模糊搜索字符串   Files[path]模糊搜索目录
+Plug 'brooth/far.vim'              " :Far foo bar **/*.py :Fardo
+Plug 'majutsushi/tagbar'         " :TagbarToggle
+Plug 'vasconcelloslf/vim-interestingwords'    "<lead>k
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'deoplete-plugins/deoplete-go', {'do':'make'}
+Plug 'w0rp/ale'
+Plug 'airblade/vim-gitgutter'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'suan/vim-instant-markdown', {'rtp': 'after'}
+Plug 'jszakmeister/markdown2ctags'
+Plug 'elzr/vim-json'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-user'
+Plug 'aquach/vim-http-client'
+Plug 'liuchengxu/vim-which-key'
+Plug 'hecal3/vim-leader-guide'
+Plug 'morhetz/gruvbox'
+Plug 'skywind3000/quickmenu.vim'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 
@@ -124,32 +124,32 @@ let g:tagbar_type_markdown = {'ctagstype': 'markdown','ctagsbin' : '/home/user/.
 let g:deoplete#sources#go#gocode_binary = '/home/user/go/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
+            \ 'ctagstype' : 'go',
+            \ 'kinds'     : [
+            \ 'p:package',
+            \ 'i:imports:1',
+            \ 'c:constants',
+            \ 'v:variables',
+            \ 't:types',
+            \ 'n:interfaces',
+            \ 'w:fields',
+            \ 'e:embedded',
+            \ 'm:methods',
+            \ 'r:constructor',
+            \ 'f:functions'
+            \ ],
+            \ 'sro' : '.',
+            \ 'kind2scope' : {
+            \ 't' : 'ctype',
+            \ 'n' : 'ntype'
+            \ },
+            \ 'scope2kind' : {
+            \ 'ctype' : 't',
+            \ 'ntype' : 'n'
+            \ },
+            \ 'ctagsbin'  : 'gotags',
+            \ 'ctagsargs' : '-sort -silent'
+            \ }
 
 " vim-go
 let g:go_fmt_command = "goimports"
@@ -179,7 +179,7 @@ syntax enable
 filetype on
 filetype plugin on
 filetype plugin indent on
-" set list lcs=tab:\|\ 
+" set list lcs=tab:\|\
 set completeopt-=preview
 set background=dark
 set shell=/usr/bin/zsh
@@ -191,7 +191,7 @@ set encoding=utf-8
 set autoindent
 set textwidth=100
 set matchtime=2 "短暂跳转到匹配括号的时间
-set smartindent                                      "开启新行时使用智能自动缩进 
+set smartindent                                      "开启新行时使用智能自动缩进
 set expandtab                                         "将Tab键转换为空格
 set smarttab                                          "指定按一次backspace就删除shiftwidth宽度的空格
 set cursorline                                        " 突出显示当前行
@@ -218,8 +218,8 @@ set mousemodel=popup                                   "开启右键快捷方式
 " set guioptions+=b                                    "添加水平滚动条
 set selection=inclusive                          "选择文本时光标所在的位置也被选中
 set selectmode=    "不适用selectmode
-set keymodel=   
-set wildmenu    
+set keymodel=
+set wildmenu
 set wildmode=full
 set whichwrap=b,s,<,>,[,]
 "set spell                                      "拼写检查
@@ -244,14 +244,14 @@ set winaltkeys=no         " 设置 alt 键不映射到菜单栏
 set showmatch          " 显示括号配对，当键入“]”“)”时，高亮度显示匹配的括号
 set showmode           " 处于文本输入方式时加亮按钮条中的模式指示器
 set showcmd             " 在状态栏显示目前所执行的指令，未完成的指令片段亦会显示出来
-set warn       " 对文本进行了新的修改后，离开shell时系统给出显示(缺省) /nowarn 
-set ws            " 在搜索时如到达文件尾则绕回文件头继续搜索 /nows   
+set warn       " 对文本进行了新的修改后，离开shell时系统给出显示(缺省) /nowarn
+set ws            " 在搜索时如到达文件尾则绕回文件头继续搜索 /nows
 set cindent                 " 以C/C++的模式缩进
 " set noignorecase       " 默认区分大小写
 set ruler                     " 打开状态栏标尺
 set scrolloff=5            " 设定光标离窗口上下边界 5 行时窗口自动滚动
-" set lines=1000 
-" set columns=1000 
+" set lines=1000
+" set columns=1000
 set helplang=cn
 " set nohlsearch "取消高亮显示 （查找字符串是，找到后高亮显示）
 set incsearch "在输入搜索的字符串同时就开始搜索已经输入的部分
@@ -296,42 +296,42 @@ set clipboard=unnamedplus
 
 
 augroup go
-  autocmd!
+    autocmd!
 
-  " Show by default 4 spaces for a tab
-  autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+    " Show by default 4 spaces for a tab
+    autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 
-  " :GoBuild and :GoTestCompile
-  autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+    " :GoBuild and :GoTestCompile
+    autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 
-  " :GoTest
-  autocmd FileType go nmap <leader>t  <Plug>(go-test)
+    " :GoTest
+    autocmd FileType go nmap <leader>t  <Plug>(go-test)
 
-  " :GoRun
-  autocmd FileType go nmap <leader>r  <Plug>(go-run)
+    " :GoRun
+    autocmd FileType go nmap <leader>r  <Plug>(go-run)
 
-  " :GoDoc
-  autocmd FileType go nmap <Leader>d <Plug>(go-doc)
+    " :GoDoc
+    autocmd FileType go nmap <Leader>d <Plug>(go-doc)
 
-  " :GoCoverageToggle
-  autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+    " :GoCoverageToggle
+    autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 
-  " :GoInfo
-  autocmd FileType go nmap <Leader>i <Plug>(go-info)
+    " :GoInfo
+    autocmd FileType go nmap <Leader>i <Plug>(go-info)
 
-  " :GoMetaLinter
-  autocmd FileType go nmap <Leader>l <Plug>(go-metalinter)
+    " :GoMetaLinter
+    autocmd FileType go nmap <Leader>l <Plug>(go-metalinter)
 
-  " :GoDef but opens in a vertical split
-  autocmd FileType go nmap <Leader>v <Plug>(go-def-vertical)
-  " :GoDef but opens in a horizontal split
-  autocmd FileType go nmap <Leader>s <Plug>(go-def-split)
+    " :GoDef but opens in a vertical split
+    autocmd FileType go nmap <Leader>v <Plug>(go-def-vertical)
+    " :GoDef but opens in a horizontal split
+    autocmd FileType go nmap <Leader>s <Plug>(go-def-split)
 
-  " :GoAlternate  commands :A, :AV, :AS and :AT
-  autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-  autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-  autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-  autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+    " :GoAlternate  commands :A, :AV, :AS and :AT
+    autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+    autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+    autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+    autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 augroup END
 
 
@@ -339,13 +339,13 @@ augroup END
 
 
 augroup json_autocmd
-  autocmd!
-  autocmd FileType json set autoindent
-  autocmd FileType json set formatoptions=tcq2l
-  autocmd FileType json set textwidth=78 shiftwidth=2
-  autocmd FileType json set softtabstop=2 tabstop=8
-  autocmd FileType json set expandtab
-  autocmd FileType json set foldmethod=syntax
+    autocmd!
+    autocmd FileType json set autoindent
+    autocmd FileType json set formatoptions=tcq2l
+    autocmd FileType json set textwidth=78 shiftwidth=2
+    autocmd FileType json set softtabstop=2 tabstop=8
+    autocmd FileType json set expandtab
+    autocmd FileType json set foldmethod=syntax
 augroup END
 
 
@@ -386,10 +386,6 @@ imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
 
 " NERDTree
 map <leader>n :NERDTreeToggle<CR>
-
-
-" easymotion
-nmap ss <Plug>(easymotion-s2)
 
 
 " 使vim配置文件生效
@@ -486,48 +482,48 @@ let g:which_key_leader_map.r = 'source vim'
 " =======================================================
 " Provide commands(ex-command, <Plug>/<C-W>/<C-d> mapping, etc.) and descriptions for existing mappings
 let g:which_key_leader_map['w'] = {
-      \ 'name' : '+windows' ,
-      \ 'w' : ['<C-W>w'     , 'other-window']          ,
-      \ 'd' : ['<C-W>c'     , 'delete-window']         ,
-      \ '-' : ['<C-W>s'     , 'split-window-below']    ,
-      \ '|' : ['<C-W>v'     , 'split-window-right']    ,
-      \ '2' : ['<C-W>v'     , 'layout-double-columns'] ,
-      \ 'h' : ['<C-W>h'     , 'window-left']           ,
-      \ 'j' : ['<C-W>j'     , 'window-below']          ,
-      \ 'l' : ['<C-W>l'     , 'window-right']          ,
-      \ 'k' : ['<C-W>k'     , 'window-up']             ,
-      \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
-      \ 'J' : ['resize +5'  , 'expand-window-below']   ,
-      \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
-      \ 'K' : ['resize -5'  , 'expand-window-up']      ,
-      \ '=' : ['<C-W>='     , 'balance-window']        ,
-      \ 's' : ['<C-W>s'     , 'split-window-below']    ,
-      \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
-      \ '?' : ['Windows'    , 'fzf-window']            ,
-      \ }
+            \ 'name' : '+windows' ,
+            \ 'w' : ['<C-W>w'     , 'other-window']          ,
+            \ 'd' : ['<C-W>c'     , 'delete-window']         ,
+            \ '-' : ['<C-W>s'     , 'split-window-below']    ,
+            \ '|' : ['<C-W>v'     , 'split-window-right']    ,
+            \ '2' : ['<C-W>v'     , 'layout-double-columns'] ,
+            \ 'h' : ['<C-W>h'     , 'window-left']           ,
+            \ 'j' : ['<C-W>j'     , 'window-below']          ,
+            \ 'l' : ['<C-W>l'     , 'window-right']          ,
+            \ 'k' : ['<C-W>k'     , 'window-up']             ,
+            \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
+            \ 'J' : ['resize +5'  , 'expand-window-below']   ,
+            \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
+            \ 'K' : ['resize -5'  , 'expand-window-up']      ,
+            \ '=' : ['<C-W>='     , 'balance-window']        ,
+            \ 's' : ['<C-W>s'     , 'split-window-below']    ,
+            \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
+            \ '?' : ['Windows'    , 'fzf-window']            ,
+            \ }
 
 
 let g:which_key_leader_map.b = {
-      \ 'name' : '+buffer' ,
-      \ '1' : ['b1'        , 'buffer 1']        ,
-      \ '2' : ['b2'        , 'buffer 2']        ,
-      \ 'd' : ['bd'        , 'delete-buffer']   ,
-      \ 'f' : ['bfirst'    , 'first-buffer']    ,
-      \ 'h' : ['Startify'  , 'home-buffer']     ,
-      \ 'l' : ['blast'     , 'last-buffer']     ,
-      \ 'n' : ['bnext'     , 'next-buffer']     ,
-      \ 'p' : ['bprevious' , 'previous-buffer'] ,
-      \ '?' : ['Buffers'   , 'fzf-buffer']      ,
-      \ }
+            \ 'name' : '+buffer' ,
+            \ '1' : ['b1'        , 'buffer 1']        ,
+            \ '2' : ['b2'        , 'buffer 2']        ,
+            \ 'd' : ['bd'        , 'delete-buffer']   ,
+            \ 'f' : ['bfirst'    , 'first-buffer']    ,
+            \ 'h' : ['Startify'  , 'home-buffer']     ,
+            \ 'l' : ['blast'     , 'last-buffer']     ,
+            \ 'n' : ['bnext'     , 'next-buffer']     ,
+            \ 'p' : ['bprevious' , 'previous-buffer'] ,
+            \ '?' : ['Buffers'   , 'fzf-buffer']      ,
+            \ }
 
 
 
 let g:which_key_localleader_map.g = {
-    \'name':'+git', 
-    \'d':['Gdiff','git diff'],
-    \'p':['GitP','git push'],
-    \'s':['Gstatus', 'git status'],
-    \}
+            \'name':'+git',
+            \'d':['Gdiff','git diff'],
+            \'p':['GitP','git push'],
+            \'s':['Gstatus', 'git status'],
+            \}
 
 
 
@@ -546,16 +542,16 @@ nmap <localleader>cA <Space>cA
 
 
 let g:which_key_localleader_map.c = {
-      \ 'name' : '+comment',
-      \ 'c' : '注释当前行',
-      \ 'u' : '取消注释',
-      \ ',' : '切换注释/非注释状态',
-      \ 'a' : '切换注释样式',
-      \ 'SPC' : '加上/解开注释-智能判断',
-      \ 'y' : '先复制再注释',
-      \ 's' : '性感的注释',
-      \ 'A' : '在当前行尾添加注释符号，并进入Insert模式',
-      \ }
+            \ 'name' : '+comment',
+            \ 'c' : '注释当前行',
+            \ 'u' : '取消注释',
+            \ ',' : '切换注释/非注释状态',
+            \ 'a' : '切换注释样式',
+            \ 'SPC' : '加上/解开注释-智能判断',
+            \ 'y' : '先复制再注释',
+            \ 's' : '性感的注释',
+            \ 'A' : '在当前行尾添加注释符号，并进入Insert模式',
+            \ }
 
 
 
