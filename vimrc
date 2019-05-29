@@ -22,7 +22,6 @@ com! GitP !git add . && git commit -m i && git push
 
 
 
-
 " =========--START--插件管理器--START--===================================
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -51,9 +50,9 @@ Plug 'ctrlpvim/ctrlp.vim' " <C-p> 文件搜索
 Plug 'jiangmiao/auto-pairs' " 自动括号
 Plug 'chiel92/vim-autoformat' " 代码格式话 例如golang需要gofmt 使用:Autoformat
 Plug 'skywind3000/quickmenu.vim' " 命令提示侧栏
+Plug 'liuchengxu/vim-which-key' "快捷键提示
 call plug#end()
 " ========--START--插件管理器--START--========================================
-
 
 
 
@@ -103,6 +102,13 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.git$']
 let g:NERDTreeQuitOnOpen = 1
 let g:quickmenu_options = "LH"
+let g:which_key_hspace = 35
+let g:airline_powerline_fonts = 1
+
+
+
+
+
 " ================插件设置===========================
 
 
@@ -168,8 +174,8 @@ set shortmess=atI                                     "去掉欢迎界面
 set fileformats=unix,dos,mac                          "给出文件的<EOL>格式类型
 set guifont="SauceCodePro Nerd Font Mono:h11"
 set mouse=a                    " 在任何模式下启用鼠标
-set foldenable                                        "折叠
-nnoremap <C-space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR> " 用空格键来开关折叠
+set nofoldenable                                        "折叠
+" nnoremap <C-space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR> " 用空格键来开关折叠
 set breakindent
 set linebreak
 set mousemodel=popup                                   "开启右键快捷方式
@@ -254,6 +260,97 @@ call g:quickmenu#append('PlugInstall', 'PlugInstall', '安装插件')
 call g:quickmenu#append('PlugClean', 'PlugClean', '清除插件')
 
 
+" 快捷键提示 vim-which-key
+call which_key#register('<Space>', "g:which_key_leader_map")
+call which_key#register(',', "g:which_key_localleader_map")
+
+nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+vnoremap <silent> <leader>      :<c-u>WhichKeyVisual '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+vnoremap <silent> <localleader> :<c-u>WhichKeyVisual  ','<CR>
+
+let g:which_key_leader_map = {}
+let g:which_key_localleader_map =  {}
+
+
+" 已近存在的快捷键
+let g:which_key_leader_map.r = 'source vim'
+" 还没有存在的快捷键
+
+let g:which_key_leader_map['w'] = {
+            \ 'name' : '+windows' ,
+            \ 'w' : ['<C-W>w'     , 'other-window']          ,
+            \ 'd' : ['<C-W>c'     , 'delete-window']         ,
+            \ '-' : ['<C-W>s'     , 'split-window-below']    ,
+            \ '|' : ['<C-W>v'     , 'split-window-right']    ,
+            \ '2' : ['<C-W>v'     , 'layout-double-columns'] ,
+            \ 'h' : ['<C-W>h'     , 'window-left']           ,
+            \ 'j' : ['<C-W>j'     , 'window-below']          ,
+            \ 'l' : ['<C-W>l'     , 'window-right']          ,
+            \ 'k' : ['<C-W>k'     , 'window-up']             ,
+            \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
+            \ 'J' : ['resize +5'  , 'expand-window-below']   ,
+            \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
+            \ 'K' : ['resize -5'  , 'expand-window-up']      ,
+            \ '=' : ['<C-W>='     , 'balance-window']        ,
+            \ 's' : ['<C-W>s'     , 'split-window-below']    ,
+            \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
+            \ '?' : ['Windows'    , 'fzf-window']            ,
+            \ }
+
+
+let g:which_key_leader_map.b = {
+            \ 'name' : '+buffer' ,
+            \ '1' : ['b1'        , 'buffer 1']        ,
+            \ '2' : ['b2'        , 'buffer 2']        ,
+            \ 'd' : ['bd'        , 'delete-buffer']   ,
+            \ 'f' : ['bfirst'    , 'first-buffer']    ,
+            \ 'h' : ['Startify'  , 'home-buffer']     ,
+            \ 'l' : ['blast'     , 'last-buffer']     ,
+            \ 'n' : ['bnext'     , 'next-buffer']     ,
+            \ 'p' : ['bprevious' , 'previous-buffer'] ,
+            \ '?' : ['Buffers'   , 'fzf-buffer']      ,
+            \ }
+
+
+
+let g:which_key_localleader_map.g = {
+            \'name':'+git',
+            \'d':['Gdiff','git diff'],
+            \'p':['GitP','git push'],
+            \'s':['Gstatus', 'git status'],
+            \}
+nmap <localleader>cc <Space>cc
+nmap <localleader>cu <Space>cu
+nmap <localleader>c, <Space>c,
+nmap <localleader>ca <Space>ca
+nmap <localleader>c<Space> <Space>c<Space>
+nmap <localleader>cy <Space>cy
+nmap <localleader>cs <Space>cs
+nmap <localleader>cA <Space>cA
+
+
+let g:which_key_localleader_map.c = {
+            \ 'name' : '+comment',
+            \ 'c' : '注释当前行',
+            \ 'u' : '取消注释',
+            \ ',' : '切换注释/非注释状态',
+            \ 'a' : '切换注释样式',
+            \ 'SPC' : '加上/解开注释-智能判断',
+            \ 'y' : '先复制再注释',
+            \ 's' : '性感的注释',
+            \ 'A' : '在当前行尾添加注释符号，并进入Insert模式',
+            \ }
+
+
+
+
+
+
+
+
+
+
 
 
 " ===============--END--自定义快捷键--END--========================
@@ -264,7 +361,18 @@ call g:quickmenu#append('PlugClean', 'PlugClean', '清除插件')
 
 
 
-
+" ==============--START--其他--START--==============================
+" 切换窗口
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+" 屏幕行和实际行移动键统一
+nnoremap k gk
+nnoremap gk k
+nnoremap j gj
+nnoremap gj j
+" ==============--END--其他--END--==============================
 
 
 
