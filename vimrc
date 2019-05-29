@@ -242,6 +242,14 @@ set hidden                      " Buffer should still exist if window is closed
 map <leader>n :NERDTreeToggle<CR>
 " 使vim配置文件生效
 nnoremap <leader>r :source $MYVIMRC <CR>
+
+
+
+
+
+
+
+
 " 命令提示菜单
 noremap <silent> <leader>/ :call quickmenu#toggle(0)<CR>
 
@@ -252,9 +260,12 @@ call g:quickmenu#append('split -', 'sp', '水平分割')
 call g:quickmenu#append('fzf', 'Files', '搜索文件')
 call g:quickmenu#append('tree', 'NERDTreeToggle', '目录')
 call g:quickmenu#append('format', 'Autoformat', '格式化文件')
+call g:quickmenu#append('terminal', 'terminal', '打开终端')
+
 call g:quickmenu#append('# vim', '')
 call g:quickmenu#append('Source', 'source $MYVIMRC', 'source $MYVIMRC')
 call g:quickmenu#append('Home', 'Startify', 'Startify Home Page')
+
 call g:quickmenu#append('# plugin', '')
 call g:quickmenu#append('PlugInstall', 'PlugInstall', '安装插件')
 call g:quickmenu#append('PlugClean', 'PlugClean', '清除插件')
@@ -320,28 +331,18 @@ let g:which_key_localleader_map.g = {
             \'p':['GitP','git push'],
             \'s':['Gstatus', 'git status'],
             \}
-nmap <localleader>cc <Space>cc
-nmap <localleader>cu <Space>cu
-nmap <localleader>c, <Space>c,
-nmap <localleader>ca <Space>ca
-nmap <localleader>c<Space> <Space>c<Space>
-nmap <localleader>cy <Space>cy
-nmap <localleader>cs <Space>cs
-nmap <localleader>cA <Space>cA
 
 
 let g:which_key_localleader_map.c = {
             \ 'name' : '+comment',
-            \ 'c' : '注释当前行',
-            \ 'u' : '取消注释',
-            \ ',' : '切换注释/非注释状态',
-            \ 'a' : '切换注释样式',
-            \ 'SPC' : '加上/解开注释-智能判断',
-            \ 'y' : '先复制再注释',
-            \ 's' : '性感的注释',
-            \ 'A' : '在当前行尾添加注释符号，并进入Insert模式',
+            \ 'c' : 'comment current line',
+            \ 'u' : 'cancel comment',
+            \ ',' : 'change comment status',
+            \ 'a' : 'change comment style',
+            \ 'y' : 'copy before comment',
+            \ 's' : 'sex comment',
+            \ 'A' : 'comment and Insert',
             \ }
-
 
 
 
@@ -372,6 +373,15 @@ nnoremap k gk
 nnoremap gk k
 nnoremap j gj
 nnoremap gj j
+" 注释
+nmap <localleader>cc <Space>cc
+nmap <localleader>cu <Space>cu
+nmap <localleader>c, <Space>c,
+nmap <localleader>ca <Space>ca
+nmap <localleader>c<Space> <Space>c<Space>
+nmap <localleader>cy <Space>cy
+nmap <localleader>cs <Space>cs
+nmap <localleader>cA <Space>cA
 " ==============--END--其他--END--==============================
 
 
