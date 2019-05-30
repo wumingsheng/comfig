@@ -55,8 +55,8 @@ Plug 'liuchengxu/vim-which-key' "快捷键提示
 Plug 'ervandew/supertab' " tab补全
 Plug 'ryanoasis/vim-devicons' "图标icons
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }  " golang
-Plug 'yggdroot/indentline'
-
+Plug 'yggdroot/indentline'   " 缩进
+Plug 'majutsushi/tagbar' "outline 视图
 
 
 
@@ -81,6 +81,19 @@ Plug 'deoplete-plugins/deoplete-go',{'do':'make'} "golang 代码补全
 " 代码片段补全
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+
+" 语法检查
+Plug 'w0rp/ale'
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -143,10 +156,40 @@ let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 let g:neoformat_enabled_go = ['goimports']
 let g:UltiSnipsExpandTrigger="<s-tab>"   "tab被supertab占用了，这里定义了shift-tab
+let g:tagbar_ctags_bin = '/home/oem/Documents/config/ctags'   "ctags路径
+" golang tagbar
+let g:tagbar_type_go = {
+            \ 'ctagstype' : 'go',
+            \ 'kinds'     : [
+            \ 'p:package',
+            \ 'i:imports:1',
+            \ 'c:constants',
+            \ 'v:variables',
+            \ 't:types',
+            \ 'n:interfaces',
+            \ 'w:fields',
+            \ 'e:embedded',
+            \ 'm:methods',
+            \ 'r:constructor',
+            \ 'f:functions'
+            \ ],
+            \ 'sro' : '.',
+            \ 'kind2scope' : {
+            \ 't' : 'ctype',
+            \ 'n' : 'ntype'
+            \ },
+            \ 'scope2kind' : {
+            \ 'ctype' : 't',
+            \ 'ntype' : 'n'
+            \ },
+            \ 'ctagsbin'  : 'gotags',
+            \ 'ctagsargs' : '-sort -silent'
+            \ }
 
-
-
-
+let b:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'],'go': ['golint']}
+let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
+let g:ale_set_balloons = 1
 
 
 
@@ -228,6 +271,7 @@ set shortmess=atI                                     "去掉欢迎界面
 set fileformats=unix,dos,mac                          "给出文件的<EOL>格式类型
 set guifont="SauceCodePro Nerd Font Mono:h11"
 set mouse=a                    " 在任何模式下启用鼠标
+set ttymouse=xterm
 set nofoldenable                                        "折叠
 " nnoremap <C-space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR> " 用空格键来开关折叠
 set breakindent
@@ -316,6 +360,7 @@ call g:quickmenu#append('tree', 'NERDTreeToggle', '目录')
 call g:quickmenu#append('Autoformat', 'Autoformat', '格式化文件')
 call g:quickmenu#append('Neoformat', 'Neoformat', '格式化文件')
 call g:quickmenu#append('terminal', 'terminal', '打开终端')
+call g:quickmenu#append('TagbarToggle', 'TagbarToggle', 'outline视图')
 
 call g:quickmenu#append('# vim', '')
 call g:quickmenu#append('Source', 'source $MYVIMRC', 'source $MYVIMRC')
