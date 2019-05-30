@@ -142,7 +142,25 @@ let g:deoplete#enable_at_startup = 1 "补全插件
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode' 
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 let g:neoformat_enabled_go = ['goimports']
-let g:UltiSnipsExpandTrigger="<s-tab>"
+let g:UltiSnipsExpandTrigger="<s-tab>"   "tab被supertab占用了，这里定义了shift-tab
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 " ================插件设置===========================
 
 
