@@ -59,7 +59,7 @@ Plug 'yggdroot/indentline'   " 缩进
 Plug 'majutsushi/tagbar' " outline 视图
 Plug 'vasconcelloslf/vim-interestingwords'   "<leader>k 高亮 <leader>K 取消高亮
 Plug 'elzr/vim-json'
-Plug 'aquach/vim-http-client'
+Plug 'aquach/vim-http-client'   "发送rest 请求
 
 
 
