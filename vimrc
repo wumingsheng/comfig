@@ -51,6 +51,8 @@ Plug 'jiangmiao/auto-pairs' " 自动括号
 Plug 'chiel92/vim-autoformat' " 代码格式话 例如golang需要gofmt 使用:Autoformat
 Plug 'skywind3000/quickmenu.vim' " 命令提示侧栏
 Plug 'liuchengxu/vim-which-key' "快捷键提示
+Plug 'ervandew/supertab' " tab补全
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 " ========--START--插件管理器--START--========================================
 
@@ -104,8 +106,7 @@ let g:NERDTreeQuitOnOpen = 1
 let g:quickmenu_options = "LH"
 let g:which_key_hspace = 35
 let g:airline_powerline_fonts = 1
-
-
+" set guifont="SauceCodePro Nerd Font Mono:h11"   
 
 
 
