@@ -52,7 +52,31 @@ Plug 'chiel92/vim-autoformat' " 代码格式话 例如golang需要gofmt 使用:A
 Plug 'skywind3000/quickmenu.vim' " 命令提示侧栏
 Plug 'liuchengxu/vim-which-key' "快捷键提示
 Plug 'ervandew/supertab' " tab补全
-Plug 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons' "图标icons
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }  " golang
+
+" sudo apt-get install python3-setuptools
+" sudo apt-get install python3-pip
+" sudo pip3 install pynvim
+
+if has('nvim')   "补全插件
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'  }
+else
+  Plug 'Shougo/deoplete.nvim', { 'do': ':InstallRemotePlugins'  }
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+
+" sudo apt-get install build-essential libssl-dev libffi-dev python3-dev
+" sudo pip3 install ujson
+Plug 'deoplete-plugins/deoplete-go',{'do':'make'} "golang 代码补全
+
+
+
+
+
+
 call plug#end()
 " ========--START--插件管理器--START--========================================
 
@@ -106,8 +130,10 @@ let g:NERDTreeQuitOnOpen = 1
 let g:quickmenu_options = "LH"
 let g:which_key_hspace = 35
 let g:airline_powerline_fonts = 1
-" set guifont="SauceCodePro Nerd Font Mono:h11"   
-
+" set guifont="SauceCodePro Nerd Font Mono:h11"  "设置terminal的字体即可 
+let g:deoplete#enable_at_startup = 1 "补全插件
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode' 
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
 
 " ================插件设置===========================
@@ -147,6 +173,8 @@ filetype plugin on
 filetype plugin indent on
 " set list lcs=tab:\|\ 
 set completeopt-=preview
+set completeopt+=noinsert
+set completeopt+=noselect
 set background=dark
 set shell=/usr/bin/zsh
 set number

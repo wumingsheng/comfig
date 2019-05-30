@@ -63,7 +63,11 @@ zplug load
 
 
 
+GOROOT=/home/oem/Downloads/go
+GOPATH=/home/oem/go
 
+PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export GOROOT GOPATH PATH
 
 
 
