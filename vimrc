@@ -49,14 +49,17 @@ Plug 'junegunn/fzf.vim' " vim使用fzf :Files & :Ag
 Plug 'ctrlpvim/ctrlp.vim' " <C-p> 文件搜索
 Plug 'jiangmiao/auto-pairs' " 自动括号
 Plug 'chiel92/vim-autoformat' " 代码格式话 例如golang需要gofmt 使用:Autoformat
-Plug 'sbdchd/neoformat'   ":Neoformat
+Plug 'sbdchd/neoformat'   " :Neoformat
 Plug 'skywind3000/quickmenu.vim' " 命令提示侧栏
-Plug 'liuchengxu/vim-which-key' "快捷键提示
+Plug 'liuchengxu/vim-which-key' " 快捷键提示
 Plug 'ervandew/supertab' " tab补全
-Plug 'ryanoasis/vim-devicons' "图标icons
+Plug 'ryanoasis/vim-devicons' " 图标icons
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }  " golang
 Plug 'yggdroot/indentline'   " 缩进
-Plug 'majutsushi/tagbar' "outline 视图
+Plug 'majutsushi/tagbar' " outline 视图
+Plug 'vasconcelloslf/vim-interestingwords'   "<leader>k 高亮 <leader>K 取消高亮
+Plug 'elzr/vim-json'
+Plug 'aquach/vim-http-client'
 
 
 
@@ -150,9 +153,9 @@ let g:NERDTreeQuitOnOpen = 1
 let g:quickmenu_options = "LH"
 let g:which_key_hspace = 35
 let g:airline_powerline_fonts = 1
-" set guifont="SauceCodePro Nerd Font Mono:h11"  "设置terminal的字体即可 
+" set guifont="SauceCodePro Nerd Font Mono:h11"  "设置terminal的字体即可
 let g:deoplete#enable_at_startup = 1 "补全插件
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode' 
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 let g:neoformat_enabled_go = ['goimports']
 let g:UltiSnipsExpandTrigger="<s-tab>"   "tab被supertab占用了，这里定义了shift-tab
@@ -191,6 +194,20 @@ let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
 let g:ale_set_balloons = 1
 
+
+" json
+au! BufRead,BufNewFile *.json set filetype=json
+augroup json_autocmd
+  autocmd!
+  autocmd FileType json set autoindent
+  autocmd FileType json set formatoptions=tcq2l
+  autocmd FileType json set textwidth=78 shiftwidth=2
+  autocmd FileType json set softtabstop=2 tabstop=8
+  autocmd FileType json set expandtab
+  autocmd FileType json set foldmethod=syntax
+  autocmd FileType json set foldenable
+  autocmd FileType json nnoremap <C-space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+augroup END
 
 
 
@@ -239,7 +256,7 @@ syntax enable
 filetype on
 filetype plugin on
 filetype plugin indent on
-" set list lcs=tab:\|\ 
+" set list lcs=tab:\|\
 set completeopt-=preview
 set completeopt+=noinsert
 set completeopt+=noselect
@@ -253,7 +270,7 @@ set encoding=utf-8
 set autoindent
 set textwidth=100
 set matchtime=2 "短暂跳转到匹配括号的时间
-set smartindent                                      "开启新行时使用智能自动缩进 
+set smartindent                                      "开启新行时使用智能自动缩进
 set expandtab                                         "将Tab键转换为空格
 set smarttab
 set cursorline                                        " 突出显示当前行
@@ -273,15 +290,15 @@ set guifont="SauceCodePro Nerd Font Mono:h11"
 set mouse=a                    " 在任何模式下启用鼠标
 set ttymouse=xterm
 set nofoldenable                                        "折叠
-" nnoremap <C-space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR> " 用空格键来开关折叠
+nnoremap <C-space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR> " 用空格键来开关折叠
 set breakindent
 set linebreak
 set mousemodel=popup                                   "开启右键快捷方式
 " set guioptions+=b                                    "添加水平滚动条
 set selection=inclusive                          "选择文本时光标所在的位置也被选中
 set selectmode=    "不适用selectmode
-set keymodel=   
-set wildmenu    
+set keymodel=
+set wildmenu
 set wildmode=full
 set whichwrap=b,s,<,>,[,]
 "set spell                                      "拼写检查
@@ -300,13 +317,13 @@ set winaltkeys=no         " 设置 alt 键不映射到菜单栏
 set showmatch          " 显示括号配对，当键入“]”“)”时，高亮度显示匹配的括号
 set showmode           " 处于文本输入方式时加亮按钮条中的模式指示器
 set showcmd             " 在状态栏显示目前所执行的指令，未完成的指令片段亦会显示出来
-set warn       " 对文本进行了新的修改后，离开shell时系统给出显示(缺省) /nowarn 
-set ws            " 在搜索时如到达文件尾则绕回文件头继续搜索 /nows   
+set warn       " 对文本进行了新的修改后，离开shell时系统给出显示(缺省) /nowarn
+set ws            " 在搜索时如到达文件尾则绕回文件头继续搜索 /nows
 set cindent                 " 以C/C++的模式缩进
 set ruler                     " 打开状态栏标尺
 set scrolloff=5            " 设定光标离窗口上下边界 5 行时窗口自动滚动
-" set lines=1000 
-" set columns=1000 
+" set lines=1000
+" set columns=1000
 set helplang=cn
 set writebackup                             "保存文件前建立备份，保存成功后删除该备份
 set nobackup                                "设置无备份文件
@@ -483,13 +500,3 @@ nmap <localleader>cy <Space>cy
 nmap <localleader>cs <Space>cs
 nmap <localleader>cA <Space>cA
 " ==============--END--其他--END--==============================
-
-
-
-
-
-
-
-
-
-
