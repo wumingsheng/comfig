@@ -78,7 +78,9 @@ endif
 " sudo pip3 install ujson
 Plug 'deoplete-plugins/deoplete-go',{'do':'make'} "golang 代码补全
 
-
+" 代码片段补全
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 
 
@@ -140,7 +142,7 @@ let g:deoplete#enable_at_startup = 1 "补全插件
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode' 
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 let g:neoformat_enabled_go = ['goimports']
-
+let g:UltiSnipsExpandTrigger="<s-tab>"
 " ================插件设置===========================
 
 
