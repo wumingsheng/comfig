@@ -55,7 +55,7 @@ Plug 'liuchengxu/vim-which-key' "快捷键提示
 Plug 'ervandew/supertab' " tab补全
 Plug 'ryanoasis/vim-devicons' "图标icons
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }  " golang
-
+Plug 'yggdroot/indentline'
 
 
 
