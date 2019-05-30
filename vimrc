@@ -49,12 +49,18 @@ Plug 'junegunn/fzf.vim' " vim使用fzf :Files & :Ag
 Plug 'ctrlpvim/ctrlp.vim' " <C-p> 文件搜索
 Plug 'jiangmiao/auto-pairs' " 自动括号
 Plug 'chiel92/vim-autoformat' " 代码格式话 例如golang需要gofmt 使用:Autoformat
+Plug 'sbdchd/neoformat'   ":Neoformat
 Plug 'skywind3000/quickmenu.vim' " 命令提示侧栏
 Plug 'liuchengxu/vim-which-key' "快捷键提示
 Plug 'ervandew/supertab' " tab补全
 Plug 'ryanoasis/vim-devicons' "图标icons
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }  " golang
 
+
+
+
+
+" 补全插件--deoplete
 " sudo apt-get install python3-setuptools
 " sudo apt-get install python3-pip
 " sudo pip3 install pynvim
@@ -71,7 +77,6 @@ endif
 " sudo apt-get install build-essential libssl-dev libffi-dev python3-dev
 " sudo pip3 install ujson
 Plug 'deoplete-plugins/deoplete-go',{'do':'make'} "golang 代码补全
-
 
 
 
@@ -134,7 +139,7 @@ let g:airline_powerline_fonts = 1
 let g:deoplete#enable_at_startup = 1 "补全插件
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode' 
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-
+let g:neoformat_enabled_go = ['goimports']
 
 " ================插件设置===========================
 
@@ -288,7 +293,8 @@ call g:quickmenu#append('split |', 'vsp', '垂直分割')
 call g:quickmenu#append('split -', 'sp', '水平分割')
 call g:quickmenu#append('fzf', 'Files', '搜索文件')
 call g:quickmenu#append('tree', 'NERDTreeToggle', '目录')
-call g:quickmenu#append('format', 'Autoformat', '格式化文件')
+call g:quickmenu#append('Autoformat', 'Autoformat', '格式化文件')
+call g:quickmenu#append('Neoformat', 'Neoformat', '格式化文件')
 call g:quickmenu#append('terminal', 'terminal', '打开终端')
 
 call g:quickmenu#append('# vim', '')
