@@ -87,7 +87,7 @@ Plug 'honza/vim-snippets'
 
 " 语法检查
 Plug 'w0rp/ale'
-
+Plug 'scrooloose/syntastic'
 
 
 
@@ -213,8 +213,15 @@ augroup END
 
 
 
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 
 
