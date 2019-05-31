@@ -9,19 +9,6 @@ com! GitP !git add . && git commit -m i && git push
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 " =========--START--插件管理器--START--===================================
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -80,6 +67,10 @@ endif
 " sudo apt-get install build-essential libssl-dev libffi-dev python3-dev
 " sudo pip3 install ujson
 Plug 'deoplete-plugins/deoplete-go',{'do':'make'} "golang 代码补全
+Plug 'Shougo/neopairs.vim'  "方法补全后自动添加括号，但是好像没有生效
+Plug 'AndrewRadev/splitjoin.vim' " split or join Go structs
+
+
 
 " 代码片段补全
 Plug 'SirVer/ultisnips'
@@ -88,7 +79,6 @@ Plug 'honza/vim-snippets'
 " 语法检查
 Plug 'w0rp/ale'
 Plug 'scrooloose/syntastic'
-
 
 
 
@@ -217,16 +207,33 @@ augroup END
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 
+" go
 
-
-
+let g:go_fmt_command = "goimports"
+let g:go_autodetect_gopath = 1
+let g:go_list_type = "quickfix"
+let g:go_auto_type_info = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_generate_tags = 1
+let g:go_auto_sameids = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_deadline = "5s"
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_auto_sameids = 1
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 
 " ================插件设置===========================
 
@@ -313,7 +320,7 @@ set ru
 set sm
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 set fo+=mB
-set ambiwidth=double
+" set ambiwidth=double
 set nocompatible " 防止进入vi兼容模式
 set nobackup
 set noswapfile
@@ -352,7 +359,6 @@ set hidden                      " Buffer should still exist if window is closed
 
 
 
-
 " ==============--END--基础配置--END--======================
 
 
@@ -375,6 +381,34 @@ nnoremap <leader>r :source $MYVIMRC <CR>
 " 命令提示菜单
 noremap <silent> <leader>/ :call quickmenu#toggle(0)<CR>
 
+
+call g:quickmenu#append('# go', '')
+call g:quickmenu#append('GoRun', 'GoRun', 'go run %', 'go')
+call g:quickmenu#append('GoBuild', 'GoBuild', 'GoBuild', 'go')
+call g:quickmenu#append('cnext', 'cnext', 'cnext', 'go')
+call g:quickmenu#append('cprevious', 'cprevious', 'cprevious', 'go')
+call g:quickmenu#append('GoInstall', 'GoInstall', 'GoInstall', 'go')
+call g:quickmenu#append('GoTest', 'GoTest', 'GoTest', 'go')
+call g:quickmenu#append('GoTestFunc', 'GoTestFunc', 'GoTestFunc', 'go')
+call g:quickmenu#append('GoTestCompile', 'GoTestCompile', 'GoTestCompile', 'go')
+call g:quickmenu#append('GoFmt', 'GoFmt', 'GoFmt', 'go')
+call g:quickmenu#append('GoImports', 'GoImports', 'GoImports', 'go')
+call g:quickmenu#append('GoMetaLinter', 'GoMetaLinter', 'GoMetaLinter', 'go')
+call g:quickmenu#append('GoDecls', 'GoDecls', 'GoDecls', 'go')
+call g:quickmenu#append('GoDoc', 'GoDoc', 'GoDoc', 'go')
+call g:quickmenu#append('GoInfo', 'GoInfo', 'GoInfo', 'go')
+call g:quickmenu#append('GoImplements', 'GoImplements', 'GoImplements', 'go')
+call g:quickmenu#append('GoChannelPeers', 'GoChannelPeers', 'GoChannelPeers', 'go')
+call g:quickmenu#append('GoRename', 'GoRename', 'GoRename', 'go')
+call g:quickmenu#append('GoImpl', 'GoImpl', 'GoImpl', 'go')
+call g:quickmenu#append('GoCallees', 'GoCallees', 'GoCallees', 'go')
+call g:quickmenu#append('GoCallstack', 'GoCallstack', 'GoCallstack', 'go')
+call g:quickmenu#append('GoCallers', 'GoCallers', 'GoCallers', 'go')
+call g:quickmenu#append('SplitjoinJoin', 'SplitjoinJoin', 'join go struct', 'go')
+call g:quickmenu#append('SplitjoinSplit', 'SplitjoinSplit', 'split go struct', 'go')
+
+
+
 call g:quickmenu#append('# common', '')
 call g:quickmenu#append('LastEX', '@:', '重复上一个命令')
 call g:quickmenu#append('split |', 'vsp', '垂直分割')
@@ -393,6 +427,36 @@ call g:quickmenu#append('Home', 'Startify', 'Startify Home Page')
 call g:quickmenu#append('# plugin', '')
 call g:quickmenu#append('PlugInstall', 'PlugInstall', '安装插件')
 call g:quickmenu#append('PlugClean', 'PlugClean', '清除插件')
+
+call g:quickmenu#append('# buffer', '')
+call g:quickmenu#append('Buffers', 'Buffers', 'Buffers')
+call g:quickmenu#append('CtrlPBuffer', 'CtrlPBuffer', 'CtrlPBuffer')
+
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <localleader>b :<C-u>call <SID>build_go_files()<CR>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 " 快捷键提示 vim-which-key
