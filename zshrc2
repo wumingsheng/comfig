@@ -73,30 +73,10 @@ export GOROOT GOPATH PATH
 
 
 
+MVN_HOME=/home/oem/Downloads/apache-maven-3.6.1
+PATH=$PATH:$MVN_HOME/bin
+export PATH
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+GRADLE_HOME=/home/oem/Downloads/gradle-5.4.1
+PATH=$PATH:$GRADLE_HOME/bin
+export PATH
