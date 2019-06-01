@@ -10,6 +10,7 @@ git
 autojump
 mvn
 gradle
+vagrant
 )
 # sudo apt-get install autojump -y
 source /usr/share/autojump/autojump.sh
