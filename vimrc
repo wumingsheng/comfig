@@ -47,8 +47,8 @@ Plug 'majutsushi/tagbar' " outline 视图
 Plug 'vasconcelloslf/vim-interestingwords'   "<leader>k 高亮 <leader>K 取消高亮
 Plug 'elzr/vim-json'
 Plug 'aquach/vim-http-client'   "发送rest 请求
-
-
+Plug 'godlygeek/tabular' " markdown
+Plug 'plasticboy/vim-markdown' " markdown
 
 " 补全插件--deoplete
 " sudo apt-get install python3-setuptools
@@ -143,7 +143,7 @@ let g:NERDTreeQuitOnOpen = 1
 let g:quickmenu_options = "LH"
 let g:which_key_hspace = 35
 let g:airline_powerline_fonts = 1
-" set guifont="SauceCodePro Nerd Font Mono:h11"  "设置terminal的字体即可
+set guifont="SauceCodePro Nerd Font Mono:h11"  "设置terminal的字体即可
 let g:deoplete#enable_at_startup = 1 "补全插件
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']

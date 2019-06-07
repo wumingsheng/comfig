@@ -81,3 +81,9 @@ export PATH
 GRADLE_HOME=/home/oem/Downloads/gradle-5.4.1
 PATH=$PATH:$GRADLE_HOME/bin
 export PATH
+
+
+
+export JAVA_HOME=/home/oem/Downloads/jdk-11
+export CLASSPATH=$JAVA_HOME/lib
+export PATH=$JAVA_HOME/bin:$PATH
