@@ -18,7 +18,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias ll="ls -al"
 alias gitp="git add . && git commit -m i && git push"
-alias home="cd ~"
+alias home="cd ~ && fortune|cowsay"
 alias tmuxn="tmux new -s"
 alias tmuxa="tmux attach-session -t"
 alias tmuxd="tmux detach"
